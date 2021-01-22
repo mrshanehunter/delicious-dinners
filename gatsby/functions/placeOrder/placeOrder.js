@@ -48,7 +48,6 @@ exports.handler = async (event, context) => {
   const requiredFields = ['email', 'name', 'phone', 'order'];
 
   for (const field of requiredFields) {
-    console.log(`Checking that ${field} is good`);
     if (!body[field]) {
       return {
         statusCode: 400,
@@ -70,7 +69,7 @@ exports.handler = async (event, context) => {
   // test send an email
   const info = await transporter.sendMail({
     from: 'Delicious Dinners <delicious@example.com>',
-    to: `${body.name} <${body.email}>, orders@example.com`,
+    to: `${body.name} <${body.email}>`,
     subject: 'New Order',
     html: generateOrderEmail({ order: body.order, total: body.total }),
   });
