@@ -68,7 +68,7 @@ exports.handler = async (event, context) => {
   }
   // test send an email
   const info = await transporter.sendMail({
-    from: 'Delicious Dinners <delicious@example.com>',
+    from: 'Delicious Dinners <the.compound.355@gmail.com>',
     to: `${body.name} <${body.email}>`,
     subject: 'New Order',
     html: generateOrderEmail({ order: body.order, total: body.total }),
